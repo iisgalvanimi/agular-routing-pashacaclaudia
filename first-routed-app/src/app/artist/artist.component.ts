@@ -14,9 +14,6 @@ export class ArtistComponent implements OnInit {
   routeObs: Observable<ParamMap>;
   spotifyServiceObs: any;
   artist : any;
-  obsArtist: Observable<Object>;
-  results: any;
-
 
   constructor(
     private route: ActivatedRoute,
@@ -39,25 +36,6 @@ export class ArtistComponent implements OnInit {
     this.spotifyServiceObs = this.service.getArtist(artistId) ;
     this.spotifyServiceObs.subscribe((data)=>this.artist = data)
   }
-
- /**  submit(query:HTMLInputElement): void {
-    if (!query.value) {
-      return;
-    }
-    this.query = query.value;
-    this.obsArtist = this.service.getArtist(this.query);
-    this.obsArtist.subscribe((data) => this.results = data);
-  }
-
-
-   renderResults(res: any): void {
-    this.results = null;
-    if (res && res.artist ) {
-      this.results = res.artist;
-    }
-  }
-  */
-
   back() : void
   {
     this.location.back();
